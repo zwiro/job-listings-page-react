@@ -1,0 +1,190 @@
+.job-listings {
+  background-color: hsl(180, 52%, 96%);
+  min-height: calc(100vh - 9.75rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 1rem;
+  margin-block: 4rem;
+
+  &__reloading &__offer {
+    display: none;
+  }
+
+  &__offer {
+    width: 80%;
+    background-color: white;
+    margin-top: 3rem;
+    padding: 0 1rem 1.5rem 1rem;
+    border-radius: 0.25rem;
+    position: relative;
+    -webkit-box-shadow: 0px 10px 9px -8px rgba(123, 142, 142, 1);
+    -moz-box-shadow: 0px 10px 9px -8px rgba(123, 142, 142, 1);
+    box-shadow: 0px 10px 9px -8px rgba(123, 142, 142, 1);
+    animation: offerAnimation 300ms ease-in-out;
+
+    &--featured {
+      border-left: 5px solid hsl(180, 29%, 50%);
+    }
+
+    & * {
+      margin-top: 1rem;
+    }
+  }
+
+  &__image {
+    margin: 0;
+    height: 3rem;
+    position: absolute;
+    top: -1.5rem;
+    cursor: pointer;
+    transition: transform 300ms ease-in-out;
+
+    @media (hover: hover) {
+      &:hover {
+        transform: rotate(45deg) scale(1.1);
+      }
+    }
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+  }
+
+  &__company {
+    color: hsl(180, 29%, 50%);
+    font-weight: 700;
+    margin-top: 1.5rem;
+    margin-right: 1.25rem;
+    cursor: pointer;
+  }
+
+  &__tag {
+    color: white;
+    height: 1.6rem;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    margin-right: 0.5rem;
+    font-size: 0.8rem;
+    vertical-align: text-top;
+
+    &--new {
+      background-color: hsl(180, 29%, 50%);
+    }
+
+    &--featured {
+      background-color: hsl(180, 14%, 20%);
+    }
+  }
+
+  &__profession {
+    color: hsl(180, 14%, 20%);
+    font-weight: 700;
+
+    @media (hover: hover) {
+      &:hover {
+        cursor: pointer;
+        color: hsl(180, 29%, 50%);
+      }
+    }
+  }
+
+  &__details {
+    display: flex;
+    color: hsl(180, 8%, 52%);
+    border-bottom: 1px solid hsl(180, 8%, 52%);
+    margin-top: 0;
+    padding-bottom: 1rem;
+
+    & > * {
+      margin-right: 0.5rem;
+    }
+  }
+
+  &__skills {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0;
+  }
+
+  &__skill {
+    background-color: hsl(180, 31%, 95%);
+    color: hsl(180, 29%, 50%);
+    height: 1.75rem;
+    font-weight: 700;
+    padding: 0.5rem;
+    margin-right: 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
+
+    &--chosen {
+      background-color: hsl(180, 29%, 50%);
+      color: white;
+      cursor: pointer;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: hsl(180, 29%, 50%);
+        color: white;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  .job-listings {
+    &__offer {
+      display: flex;
+      align-items: center;
+      padding: 0 1rem;
+      margin-top: 1rem;
+    }
+    &__image {
+      position: unset;
+      height: 5rem;
+      margin-right: 1rem;
+    }
+
+    &__desktop-container {
+      margin-right: 1rem;
+      min-width: 14rem;
+    }
+
+    &__title {
+      margin-top: 0;
+
+      & * {
+        margin-top: 0;
+      }
+    }
+
+    &__details {
+      border-bottom: none;
+    }
+
+    &__skills {
+      margin-left: auto;
+      justify-content: flex-end;
+    }
+
+    &__skill {
+      margin: 0.5rem;
+    }
+  }
+}
+
+@keyframes offerAnimation {
+  0% {
+    transform: scale(0);
+  }
+}
+
+@keyframes reloadJobs {
+  0% {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
